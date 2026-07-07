@@ -1,0 +1,77 @@
+<?php
+
+class NigeriaState
+{
+    public $name;
+    public $capital;
+    public $minerals;
+
+    public function __construct($name, $capital, $minerals = [])
+    {
+        $this->name = $name;
+        $this->capital = $capital;
+        $this->minerals = $minerals;
+    }
+
+    public function toArray()
+    {
+        return [
+            "state" => $this->name,
+            "capital" => $this->capital,
+            "minerals" => $this->minerals
+        ];
+    }
+}
+
+$states = [
+
+    new NigeriaState("Abia", "Umuahia", ["Limestone", "Lead", "Zinc"]),
+    new NigeriaState("Adamawa", "Yola", ["Gypsum", "Kaolin", "Bentonite"]),
+    new NigeriaState("Akwa Ibom", "Uyo", ["Crude Oil", "Natural Gas"]),
+    new NigeriaState("Anambra", "Awka", ["Natural Gas", "Clay"]),
+    new NigeriaState("Bauchi", "Bauchi", ["Tin", "Columbite", "Limestone"]),
+    new NigeriaState("Bayelsa", "Yenagoa", ["Crude Oil", "Natural Gas"]),
+    new NigeriaState("Benue", "Makurdi", ["Limestone", "Gypsum", "Barite"]),
+    new NigeriaState("Borno", "Maiduguri", ["Clay", "Limestone"]),
+    new NigeriaState("Cross River", "Calabar", ["Limestone", "Salt"]),
+    new NigeriaState("Delta", "Asaba", ["Crude Oil", "Natural Gas"]),
+    new NigeriaState("Ebonyi", "Abakaliki", ["Lead", "Zinc", "Salt"]),
+    new NigeriaState("Edo", "Benin City", ["Limestone", "Marble"]),
+    new NigeriaState("Ekiti", "Ado-Ekiti", ["Granite", "Kaolin"]),
+    new NigeriaState("Enugu", "Enugu", ["Coal", "Limestone"]),
+    new NigeriaState("FCT", "Abuja", ["Marble", "Clay"]),
+    new NigeriaState("Gombe", "Gombe", ["Gypsum", "Limestone"]),
+    new NigeriaState("Imo", "Owerri", ["Crude Oil", "Natural Gas"]),
+    new NigeriaState("Jigawa", "Dutse", ["Kaolin", "Granite"]),
+    new NigeriaState("Kaduna", "Kaduna", ["Gold", "Kaolin", "Marble"]),
+    new NigeriaState("Kano", "Kano", ["Cassiterite", "Kaolin"]),
+    new NigeriaState("Katsina", "Katsina", ["Kaolin", "Quartz"]),
+    new NigeriaState("Kebbi", "Birnin Kebbi", ["Gold", "Limestone"]),
+    new NigeriaState("Kogi", "Lokoja", ["Iron Ore", "Coal", "Limestone"]),
+    new NigeriaState("Kwara", "Ilorin", ["Gold", "Marble", "Granite"]),
+    new NigeriaState("Lagos", "Ikeja", ["Bitumen"]),
+    new NigeriaState("Nasarawa", "Lafia", ["Tin", "Columbite", "Barite", "Gold"]),
+    new NigeriaState("Niger", "Minna", ["Gold", "Talc", "Granite"]),
+    new NigeriaState("Ogun", "Abeokuta", ["Limestone", "Granite", "Phosphate"]),
+    new NigeriaState("Ondo", "Akure", ["Bitumen", "Crude Oil"]),
+    new NigeriaState("Osun", "Osogbo", ["Gold", "Talc"]),
+    new NigeriaState("Oyo", "Ibadan", ["Marble", "Kaolin"]),
+    new NigeriaState("Plateau", "Jos", ["Tin", "Columbite", "Gemstones"]),
+    new NigeriaState("Rivers", "Port Harcourt", ["Crude Oil", "Natural Gas"]),
+    new NigeriaState("Sokoto", "Sokoto", ["Limestone", "Clay"]),
+    new NigeriaState("Taraba", "Jalingo", ["Baryte", "Lead", "Zinc"]),
+    new NigeriaState("Yobe", "Damaturu", ["Gypsum", "Limestone"]),
+    new NigeriaState("Zamfara", "Gusau", ["Gold", "Lead", "Zinc"])
+
+];
+
+$data = [];
+
+foreach ($states as $state) {
+    $data[] = $state->toArray();
+}
+
+header("Content-Type: application/json");
+echo json_encode($data, JSON_PRETTY_PRINT);
+
+?>
