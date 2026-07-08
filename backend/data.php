@@ -1,28 +1,4 @@
 <?php
-
-class NigeriaState
-{
-    public $name;
-    public $capital;
-    public $minerals;
-
-    public function __construct($name, $capital, $minerals = [])
-    {
-        $this->name = $name;
-        $this->capital = $capital;
-        $this->minerals = $minerals;
-    }
-
-    public function toArray()
-    {
-        return [
-            "state" => $this->name,
-            "capital" => $this->capital,
-            "minerals" => $this->minerals
-        ];
-    }
-}
-
 $states = [
 
     new NigeriaState("Abia", "Umuahia", ["Limestone", "Lead", "Zinc"]),
@@ -64,14 +40,4 @@ $states = [
     new NigeriaState("Zamfara", "Gusau", ["Gold", "Lead", "Zinc"])
 
 ];
-
-$data = [];
-
-foreach ($states as $state) {
-    $data[] = $state->toArray();
-}
-
-header("Content-Type: application/json");
-echo json_encode($data, JSON_PRETTY_PRINT);
-
 ?>
